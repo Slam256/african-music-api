@@ -1,9 +1,12 @@
-# African Name API
-This is an API that returns information about your favourite rapper including their Birth name wowwww. 
+
+=======
+# African Music API
+This is an API that returns information about your favourite african song. The musician, what country they come from and a link to the youtube channel where you can find more.
 
 **Link to project:** https://african-music-api.herokuapp.com
 
-![alt tag](/images/african-music.jpeg)
+![alt tag](images/african-music.jpeg)
+>>>>>>> 231140dd5f3f3286fc23025fa6416b1d96e73b30
 
 ## How It's Made:
  Step 1: created the required directory
