@@ -3,7 +3,7 @@ This is an API that returns information about your favourite rapper including th
 
 **Link to project:** https://african-music-api.herokuapp.com
 
-![alt tag](/african-music-api/images/african-music.jpeg)
+![alt tag](images/african-music.jpeg)
 
 ## How It's Made:
  Step 1: created the required directory
