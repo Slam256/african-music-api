@@ -1,71 +1,27 @@
-const express = require('express')
-const app = express()
-const PORT = process.env.PORT || 8000
-const cors = require('cors')
+const express = require("express");
 
-app.use(cors())
+const app = express();
+const PORT = process.env.PORT || 8000;
+const cors = require("cors");
+const { getSong } = require("./src/get-song");
 
-const music = {
-    "some ka money":{"Genre": "Rap",
-    "Muscian Name":"Adrenalyn Music",
-    "Country":"Uganda",
-    "Link to more":"https://www.youtube.com/channel/UCstaxaWvd3KhwaTEHhhes3Q"
+app.use(cors());
 
-    },
-    "zinge":{"Genre": "Rap",
-    "Muscian Name":"Adrenalyn Music",
-    "Country":"Uganda",
-    "Link to more":"https://www.youtube.com/channel/UCstaxaWvd3KhwaTEHhhes3Q"
-
-    },
-    "emergency":{
-        "Genre": "RnB",
-        "Muscian Name":"Spice Diana",
-        "Country":"Uganda",
-        "Link to more":"https://www.youtube.com/channel/UCT0LQjFFUr8yq1wI-EeGJSg"
-    },
-    "tujooge":{
-        "Genre": "RnB",
-        "Muscian Name":"Spice Diana",
-        "Country":"Uganda",
-        "Link to more":"https://www.youtube.com/channel/UCT0LQjFFUr8yq1wI-EeGJSg"
-    },
-    "my year":{
-        "Genre": "RnB",
-        "Muscian Name":"Azawi",
-        "Country":"Uganda",
-        "Link to more":"https://www.youtube.com/channel/UC8ZP6cKnFDw_cewhqxeKmaA"
-    },
-    "slow dancing":{
-        "Genre": "RnB",
-        "Muscian Name":"Azawi",
-        "Country":"Uganda",
-        "Link to more":"https://www.youtube.com/channel/UC8ZP6cKnFDw_cewhqxeKmaA"
-    },
-    "unknown":{
-        "Genre": "TBA",
-        "Muscian Name":"TBA",
-        "Country":"TBA",
-        "Link to more":"TBA"
-    }
-
-}
 app.listen(PORT, () => {
-    console.log(`Port id running on ${PORT} go and catch it`)
-})
+  // eslint-disable-next-line no-console
+  console.log(`Port id running on ${PORT} go and catch it`);
+});
 
-app.get('/', (req,res) => {
-    res.sendFile(__dirname + '/index.html')
-})
+app.get("/", (req, res) => {
+  res.sendFile(`${__dirname}/index.html`);
+});
 
-app.get('/api/:name', (req, res)=>{
-    const songName = req.params.name.toLowerCase()
-    if(music[songName]){
-        res.json(music[songName])
-    }else if(songName === "all"){
-        res.json(music)
-    }else{
-        res.json(music["unknown"])
-    }
+app.get("/api/:name", (req, res) => {
+  const response = getSong(req);
+  res.json(response);
+});
 
-})
+app.get("/api/", (req, res) => {
+  // res.statusCode= 404
+  res.json("Sorry enter an artist name or song");
+});
