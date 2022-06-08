@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+    <title>AFRICAN MUSIC API</title>
+</head>
+<body>
+    <h1>AFRICAN MUSIC API</h1>
+    <p>This API will give you information about African music. </p>
+    <p> Name of song, Name of the muscian and their country. It will even give you a link to their youtube channel so you can listen to more.  </p>
+    <h1>HOW TO USE</h1>
+    <p>In the address bar input https://african-music-api.herokuapp.com/api/"african song"
+        if there is a space between the name add it. 
+        if you would like to see all the songs in the database /api/all . 
+    </p>
+    <h1 class="add-song">Add a record to database</h1>
+    <form action="/songs" method="post">
+        <input type="text" name="title" placeholder="title">
+        <input type="text" name="genre" placeholder="genre">
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="country" placeholder="country">
+        <input type="text" name="link" placeholder="link">
+        <button type="submit">Submit</button>
+    </form>
+    <h2> Songs </h2>
+    <ul class="songs">
+        <% for( let i = 0; i < songs.length; i++) {%>
+            <li class="song">
+                <span><%= `Name: ${songs[i].title}`%></span><br>
+                <span><%= `Genre: ${songs[i].genre}` %></span><br>
+                <span><%= `Muscian Name: ${songs[i].name}`%></span><br>
+                <span><%= `Country: ${songs[i].country}`%></span><br>
+                <span><%= `Youtube Link: ${songs[i].link}`%></span><br>
+                <span><%= `Hearts: ${songs[i].hearts}`%><i class="bx bx-happy-heart-eyes" onClick="addHeart('<%= songs[i].title%>')"></i></span><br>
+                
+            </li>
+        <% } %>
+    </ul>
+    <script src="js/main.js"></script>
+</body>
+</html>
