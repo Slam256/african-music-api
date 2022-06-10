@@ -15,5 +15,14 @@
         if there is a space between the name add it. 
         if you would like to see all the songs in the database /api/all . 
     </p>
+    <h1 class="add-song">Add a record to database</h1>
+    <form action="/songs" method="post">
+        <input type="text" name="song" placeholder="song">
+        <input type="text" name="genre" placeholder="genre">
+        <input type="text" name="muscian-name" placeholder="muscian-name">
+        <input type="text" name="country" placeholder="country">
+        <input type="text" name="link" placeholder="link">
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
