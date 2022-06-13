@@ -24,6 +24,7 @@ const dbName = "african-music";
 
 MongoClient.connect(dbConnectionStr, {
   useUnifiedTopology: true,
+  useNewUrlParser: true,
 // eslint-disable-next-line consistent-return
 }, (err, client) => {
   if (err) {
