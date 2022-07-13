@@ -5,7 +5,7 @@ This is an API that returns information about your favourite african song. The m
 
 **Link to project:** https://african-music-api.herokuapp.com
 
-![alt tag](images/african-music.jpeg)
+![alt tag](public/images/african-music.jpeg)
 
 
 ## How It's Made:
